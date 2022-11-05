@@ -1,9 +1,8 @@
-/*var list = [
-    {"description":"arroz", "amount":1, "value":"25.00"},
+var list = [
+    /*{"description":"arroz", "amount":1, "value":"25.00"},
     {"description":"cerveja", "amount":12, "value":"2.5"},
-    {"description":"carne", "amount":1, "value":"29.00"}
-];*/
-initListStorage();
+    {"description":"carne", "amount":1, "value":"29.00"}*/
+];
 
 function subTotal(amount, value){
     return amount * value;
@@ -58,7 +57,7 @@ function setList(list) {
     table += '</tbody>';
     document.getElementById("listtable").innerHTML = table;
     document.getElementById("totalValue").innerHTML = formatValue(getTotal(list));
-    saveListStorage();
+    saveListStorage(list);
 }
 
 function deleteData(index){
@@ -145,7 +144,7 @@ function validation(){
     return 1;
 }
 
-function saveListStorage(){
+function saveListStorage(list){
     //código para atualizar o storage
     var jsonStr = JSON.stringify(list);
     localStorage.setItem("list",jsonStr);
@@ -159,5 +158,4 @@ function initListStorage(){
     }
     setList(list);
 }
-
-setList(list);
+initListStorage();
